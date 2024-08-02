@@ -5,6 +5,7 @@ import FridgeItems from "./src/screens/FridgeItems";
 import FreezerItems from "./src/screens/FreezerItems";
 import StoreItems from "./src/screens/StoreItems";
 import HomeScreenHeader from "./src/components/HomeScreenHeader";
+import FridgeHeader from "./src/components/FridgeHeader";
 
 const Stack = createStackNavigator();
 
@@ -19,7 +20,13 @@ export default function App() {
             header: () => <HomeScreenHeader navigation={navigation} />,
           })}
         />
-        <Stack.Screen name="Fridge" component={FridgeItems} />
+        <Stack.Screen
+          name="Fridge"
+          component={FridgeItems}
+          options={({ navigation }) => ({
+            header: () => <FridgeHeader navigation={navigation} />,
+          })}
+        />
         <Stack.Screen name="Freezer" component={FreezerItems} />
         <Stack.Screen name="Store" component={StoreItems} />
         <Stack.Screen
