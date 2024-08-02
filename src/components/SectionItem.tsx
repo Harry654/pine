@@ -52,7 +52,7 @@ const SectionItem: React.FC<Props> = ({ sectionItem }) => {
     }
   };
   return (
-    <View className="w-[45%] rounded-md bg-white m-1 p-3">
+    <View className="w-[45%] rounded-md bg-white m-1 p-3 shadow-md">
       <View className="flex flex-row justify-between items-center">
         {getIcon(sectionItem.section)}
         <Text
