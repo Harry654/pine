@@ -1,0 +1,43 @@
+{
+  "cli": {
+    "version": ">= 10.2.2"
+  },
+  "build": {
+    "development": {
+      "developmentClient": true,
+      "distribution": "internal",
+      "env": {
+        "EXPO_PUBLIC_FIREBASE_API_KEY": "AIzaSyDCdSGGX-vcrXqhryoB4uY2mapYT28ZoLg",
+        "EXPO_PUBLIC_FIREBASE_AUTH_DOMAIN": "pine-pantry-app.firebaseapp.com",
+        "EXPO_PUBLIC_FIREBASE_PROJECT_ID": "pine-pantry-app",
+        "EXPO_PUBLIC_FIREBASE_STORAGE_BUCKET": "pine-pantry-app.appspot.com",
+        "EXPO_PUBLIC_FIREBASE_MESSAGING_SENDER_ID": "327155910698",
+        "EXPO_PUBLIC_FIREBASE_APP_ID": "1:327155910698:ios:2d2366631b367c33609b53"
+      }
+    },
+    "preview": {
+      "distribution": "internal",
+      "env": {
+        "EXPO_PUBLIC_FIREBASE_API_KEY": "AIzaSyDCdSGGX-vcrXqhryoB4uY2mapYT28ZoLg",
+        "EXPO_PUBLIC_FIREBASE_AUTH_DOMAIN": "pine-pantry-app.firebaseapp.com",
+        "EXPO_PUBLIC_FIREBASE_PROJECT_ID": "pine-pantry-app",
+        "EXPO_PUBLIC_FIREBASE_STORAGE_BUCKET": "pine-pantry-app.appspot.com",
+        "EXPO_PUBLIC_FIREBASE_MESSAGING_SENDER_ID": "327155910698",
+        "EXPO_PUBLIC_FIREBASE_APP_ID": "1:327155910698:ios:2d2366631b367c33609b53"
+      }
+    },
+    "production": {
+      "env": {
+        "EXPO_PUBLIC_FIREBASE_API_KEY": "AIzaSyDCdSGGX-vcrXqhryoB4uY2mapYT28ZoLg",
+        "EXPO_PUBLIC_FIREBASE_AUTH_DOMAIN": "pine-pantry-app.firebaseapp.com",
+        "EXPO_PUBLIC_FIREBASE_PROJECT_ID": "pine-pantry-app",
+        "EXPO_PUBLIC_FIREBASE_STORAGE_BUCKET": "pine-pantry-app.appspot.com",
+        "EXPO_PUBLIC_FIREBASE_MESSAGING_SENDER_ID": "327155910698",
+        "EXPO_PUBLIC_FIREBASE_APP_ID": "1:327155910698:ios:2d2366631b367c33609b53"
+      }
+    }
+  },
+  "submit": {
+    "production": {}
+  }
+}
