@@ -1,11 +1,12 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import HomeScreen from "./src/screens/HomeScreen";
-import FridgeItems from "./src/screens/FridgeItems";
-import FreezerItems from "./src/screens/FreezerItems";
-import StoreItems from "./src/screens/StoreItems";
+import FridgeScreen from "./src/screens/FridgeScreen";
+import FreezerScreen from "./src/screens/FreezerScreen";
+import ShelfScreen from "./src/screens/ShelfScreen";
 import HomeScreenHeader from "./src/components/HomeScreenHeader";
 import FridgeHeader from "./src/components/FridgeHeader";
+import AddItemScreen from "./src/screens/AddItemScreen";
 
 const Stack = createStackNavigator();
 
@@ -22,16 +23,16 @@ export default function App() {
         />
         <Stack.Screen
           name="Fridge"
-          component={FridgeItems}
+          component={FridgeScreen}
           options={({ navigation }) => ({
             header: () => <FridgeHeader navigation={navigation} />,
           })}
         />
-        <Stack.Screen name="Freezer" component={FreezerItems} />
-        <Stack.Screen name="Store" component={StoreItems} />
+        <Stack.Screen name="Freezer" component={FreezerScreen} />
+        <Stack.Screen name="Shelf" component={ShelfScreen} />
         <Stack.Screen
           name="AddItem"
-          component={StoreItems}
+          component={AddItemScreen}
           options={{ presentation: "modal" }}
         />
       </Stack.Navigator>

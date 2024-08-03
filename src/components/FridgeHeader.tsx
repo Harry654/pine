@@ -16,8 +16,11 @@ const FridgeHeader: React.FC<CustomHeaderProps> = ({ navigation }) => {
   return (
     <SafeAreaView className="border-b border-gray-300 mb-5 h-32">
       <View className="flex flex-row justify-between items-center px-5">
-        <TouchableOpacity className="flex flex-row items-center">
-          <AntDesign name="left" size={24} color="rgba(0, 0, 255, 0.5)" />
+        <TouchableOpacity
+          className="flex flex-row items-center"
+          onPress={() => navigation.goBack()}
+        >
+          <AntDesign name="left" size={24} color="rgba(0, 0, 0, 0.5)" />
         </TouchableOpacity>
 
         <Text className="font-bold text-xl">Fridge</Text>

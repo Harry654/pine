@@ -1,6 +1,6 @@
 import React from "react";
 import { Text, View } from "react-native";
-import { sections } from "../helpers/sections";
+import { sections } from "../constants/sections";
 import SectionItem from "./SectionItem";
 
 const Sections = () => {

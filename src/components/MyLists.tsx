@@ -1,7 +1,7 @@
 import React from "react";
 import { Text, TouchableOpacity, View } from "react-native";
 import SectionItem from "./SectionItem";
-import { list } from "../helpers/list";
+import { list } from "../constants/list";
 import AntDesign from "@expo/vector-icons/AntDesign";
 import { useNavigation } from "@react-navigation/native";
 import { HomeScreenNavigationProp } from "../nav_types";

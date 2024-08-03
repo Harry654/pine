@@ -1,9 +1,7 @@
 import { SafeAreaView, ScrollView, TouchableOpacity, View } from "react-native";
 import FontAwesome6 from "@expo/vector-icons/FontAwesome6";
-import Sections from "../components/Sections";
-import MyLists from "../components/MyLists";
 
-export default function FreezerItems() {
+export default function FreezerScreen() {
   return (
     <SafeAreaView className="w-full flex-1 bg-gray-100">
       <ScrollView className="w-full flex-1 bg-gray-100">
