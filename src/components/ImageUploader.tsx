@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { View, Image, Alert, TouchableOpacity } from "react-native";
 import * as ImagePicker from "expo-image-picker";
-import * as Permissions from "expo-permissions";
+// import * as Permissions from "expo-permissions";
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 
 interface ImageUploaderProps {
@@ -14,9 +14,9 @@ const ImageUploader: React.FC<ImageUploaderProps> = ({ onImagePicked }) => {
   useEffect(() => {
     (async () => {
       const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();
-      if (status !== "granted") {
-        alert("Sorry, we need camera roll permissions to make this work!");
-      }
+      // if (status !== "granted") {
+      //   alert("Sorry, we need camera roll permissions to make this work!");
+      // }
     })();
   }, []);
 
@@ -74,7 +74,7 @@ const ImageUploader: React.FC<ImageUploaderProps> = ({ onImagePicked }) => {
         </TouchableOpacity>
       ) : (
         <TouchableOpacity
-          className="rounded-full p-2 bg-blue-500"
+          className="rounded-full p-2 bg-blue-200"
           onPress={showOptions}
         >
           <MaterialIcons name="file-upload" size={50} color="white" />

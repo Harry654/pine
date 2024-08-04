@@ -9,10 +9,14 @@ export const searchItems = async (
     // setTimeout(() => {
     let items: IPantryItems;
     if (location === "all")
-      items = pantryItems.filter((item) => item.name.includes(q));
+      items = pantryItems.filter((item) =>
+        item.name.toLowerCase().includes(q.toLowerCase())
+      );
     else
       items = pantryItems.filter(
-        (item) => item.name.includes(q) && item.location === location
+        (item) =>
+          item.name.toLowerCase().includes(q.toLowerCase()) &&
+          item.location === location
       );
     resolve(items);
     // }, 2000);

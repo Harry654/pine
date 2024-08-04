@@ -11,11 +11,16 @@ type PropsData = {
 interface Props {
   label: string;
   data: PropsData;
+  value: string;
   onChange: Function;
 }
 
-const DropdownComponent: React.FC<Props> = ({ label, data, onChange }) => {
-  const [value, setValue] = useState(data[0].label || null);
+const DropdownComponent: React.FC<Props> = ({
+  label,
+  data,
+  value,
+  onChange,
+}) => {
   const [isFocus, setIsFocus] = useState(false);
 
   const renderLabel = () => {
@@ -49,7 +54,6 @@ const DropdownComponent: React.FC<Props> = ({ label, data, onChange }) => {
         onFocus={() => setIsFocus(true)}
         onBlur={() => setIsFocus(false)}
         onChange={(item) => {
-          setValue(item.value);
           onChange(item.value);
           setIsFocus(false);
         }}

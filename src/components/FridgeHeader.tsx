@@ -23,13 +23,13 @@ const FridgeHeader: React.FC<CustomHeaderProps> = ({ navigation }) => {
           <AntDesign name="left" size={24} color="rgba(0, 0, 0, 0.5)" />
         </TouchableOpacity>
 
-        <Text className="font-bold text-xl">Fridge</Text>
+        <Text className="font-bold text-lg">Fridge</Text>
 
         <TouchableOpacity onPress={() => navigation.navigate("AddItem")}>
           <FontAwesome6 name="add" size={24} color="rgba(0, 0, 255, 0.5)" />
         </TouchableOpacity>
       </View>
-      <SearchBar />
+      <SearchBar location="fridge" />
     </SafeAreaView>
   );
 };

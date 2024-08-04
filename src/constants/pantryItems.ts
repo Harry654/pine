@@ -1,11 +1,12 @@
 import { IPantryItems } from "../types";
 export const pantryItems: IPantryItems = [
   {
+    id: "1a2b3c4d5e6f7g8h9i0j",
     name: "Milk",
     quantity: 2,
     quantity_unit: "liters",
-    date_added: new Date("2024-07-15T00:00:00Z"),
-    expiration_date: new Date("2024-07-22T00:00:00Z"),
+    date_added: new Date("2024-08-04T00:00:00Z"),
+    expiration_date: new Date("2024-11-06T00:00:00Z"),
     category: "dairy",
     notes: "Low-fat",
     is_expired: false,
@@ -13,11 +14,12 @@ export const pantryItems: IPantryItems = [
     location: "fridge",
   },
   {
+    id: "j0i9h8g7f6e5d4c3b2a1",
     name: "Eggs",
     quantity: 12,
     quantity_unit: "pieces",
     date_added: new Date("2024-07-18T00:00:00Z"),
-    expiration_date: new Date("2024-08-15T00:00:00Z"),
+    expiration_date: new Date("2025-01-17T00:00:00Z"),
     category: "dairy",
     notes: "Free-range",
     is_expired: false,
@@ -25,11 +27,12 @@ export const pantryItems: IPantryItems = [
     location: "fridge",
   },
   {
+    id: "k1l2m3n4o5p6q7r8s9t0",
     name: "Carrots",
     quantity: 1,
     quantity_unit: "kg",
     date_added: new Date("2024-07-10T00:00:00Z"),
-    expiration_date: new Date("2024-07-30T00:00:00Z"),
+    expiration_date: new Date("2024-08-18T00:00:00Z"),
     category: "vegetables",
     notes: "Organic",
     is_expired: false,
@@ -37,11 +40,12 @@ export const pantryItems: IPantryItems = [
     location: "fridge",
   },
   {
+    id: "0t9s8r7q6p5o4n3m2l1k",
     name: "Chicken Breast",
     quantity: 4,
     quantity_unit: "pieces",
     date_added: new Date("2024-07-20T00:00:00Z"),
-    expiration_date: new Date("2024-07-27T00:00:00Z"),
+    expiration_date: new Date("2024-08-30T00:00:00Z"),
     category: "meat",
     notes: "Skinless, boneless",
     is_expired: false,
@@ -49,6 +53,7 @@ export const pantryItems: IPantryItems = [
     location: "fridge",
   },
   {
+    id: "z1x2c3v4b5n6m7a8s9d0",
     name: "Ice Cream",
     quantity: 2,
     quantity_unit: "pints",
@@ -61,6 +66,7 @@ export const pantryItems: IPantryItems = [
     location: "freezer",
   },
   {
+    id: "0d9s8a7m6n5b4v3c2x1z",
     name: "Peas",
     quantity: 1,
     quantity_unit: "bag",
@@ -73,6 +79,7 @@ export const pantryItems: IPantryItems = [
     location: "freezer",
   },
   {
+    id: "p0o9i8u7y6t5r4e3w2q1",
     name: "Fish Fillets",
     quantity: 5,
     quantity_unit: "pieces",
@@ -85,6 +92,7 @@ export const pantryItems: IPantryItems = [
     location: "freezer",
   },
   {
+    id: "1q2w3e4r5t6y7u8i9o0p",
     name: "Bread",
     quantity: 2,
     quantity_unit: "loaves",
@@ -97,6 +105,7 @@ export const pantryItems: IPantryItems = [
     location: "shelf",
   },
   {
+    id: "m0n9b8v7c6x5z4l3k2j1",
     name: "Peanut Butter",
     quantity: 1,
     quantity_unit: "jar",
@@ -109,6 +118,7 @@ export const pantryItems: IPantryItems = [
     location: "shelf",
   },
   {
+    id: "1j2k3l4z5x6c7v8b9n0m",
     name: "Pasta",
     quantity: 3,
     quantity_unit: "packs",
@@ -121,6 +131,7 @@ export const pantryItems: IPantryItems = [
     location: "shelf",
   },
   {
+    id: "u0y9t8r7e6w5q4a3s2d1",
     name: "Tomato Sauce",
     quantity: 4,
     quantity_unit: "cans",
@@ -133,6 +144,7 @@ export const pantryItems: IPantryItems = [
     location: "shelf",
   },
   {
+    id: "1d2s3a4q5w6e7r8t9y0u",
     name: "Frozen Pizza",
     quantity: 2,
     quantity_unit: "pieces",
@@ -145,11 +157,12 @@ export const pantryItems: IPantryItems = [
     location: "freezer",
   },
   {
+    id: "f0g9h8j7k6l5m4n3o2p1",
     name: "Lettuce",
     quantity: 1,
     quantity_unit: "head",
     date_added: new Date("2024-07-18T00:00:00Z"),
-    expiration_date: new Date("2024-07-25T00:00:00Z"),
+    expiration_date: new Date("2024-08-06T00:00:00Z"),
     category: "vegetables",
     notes: "Romaine",
     is_expired: false,
@@ -157,6 +170,7 @@ export const pantryItems: IPantryItems = [
     location: "fridge",
   },
   {
+    id: "1p2o3n4m5l6k7j8h9g0f",
     name: "Butter",
     quantity: 1,
     quantity_unit: "pack",
@@ -169,6 +183,7 @@ export const pantryItems: IPantryItems = [
     location: "fridge",
   },
   {
+    id: "c0v9b8n7m6a5s4d3f2g1",
     name: "Apples",
     quantity: 6,
     quantity_unit: "pieces",
@@ -181,6 +196,7 @@ export const pantryItems: IPantryItems = [
     location: "fridge",
   },
   {
+    id: "1g2f3d4s5a6m7n8b9v0c",
     name: "Ground Beef",
     quantity: 2,
     quantity_unit: "packs",
@@ -193,11 +209,12 @@ export const pantryItems: IPantryItems = [
     location: "freezer",
   },
   {
+    id: "x0z9c8v7b6n5m4a3s2d1",
     name: "Orange Juice",
     quantity: 1,
     quantity_unit: "bottle",
     date_added: new Date("2024-07-16T00:00:00Z"),
-    expiration_date: new Date("2024-08-01T00:00:00Z"),
+    expiration_date: new Date("2024-12-13T00:00:00Z"),
     category: "beverages",
     notes: "With pulp",
     is_expired: false,
@@ -205,6 +222,7 @@ export const pantryItems: IPantryItems = [
     location: "fridge",
   },
   {
+    id: "1d2s3a4m5n6b7v8c9z0x",
     name: "Potatoes",
     quantity: 5,
     quantity_unit: "kg",

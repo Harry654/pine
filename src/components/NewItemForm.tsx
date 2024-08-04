@@ -1,31 +1,20 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { View, TextInput, Text, TouchableOpacity } from "react-native";
 // import DateTimePicker from '@react-native-community/datetimepicker';
 import { Picker } from "@react-native-picker/picker";
 import ImageUploader from "./ImageUploader";
-import { IPantryItem, QuantityUnit } from "../types";
-import { Dropdown } from "react-native-element-dropdown";
+import { IPantryItem } from "../types";
 import DropdownComponent from "./DropdownComponent";
+import { PantryContext } from "../context/PantryContext";
 
 const NewItemForm: React.FC = () => {
-  const [newItem, setNewItem] = useState<IPantryItem>({
-    name: "",
-    quantity: 1,
-    quantity_unit: "pieces",
-    date_added: new Date(),
-    expiration_date: new Date(),
-    category: "dairy",
-    notes: "",
-    is_expired: false,
-    image_url: "",
-    location: "fridge",
-  });
+  const { newItem, updateNewItem } = useContext(PantryContext);
   const [showDatePicker, setShowDatePicker] = useState(false);
 
   const quantity_units = [
     { label: "Pieces", value: "pieces" },
     { label: "Grams", value: "grams" },
-    { label: "meat", value: "kg" },
+    { label: "Kilograms", value: "kg" },
     { label: "Liters", value: "liters" },
     { label: "Jar", value: "jar" },
     { label: "Loaves", value: "loaves" },
@@ -51,17 +40,20 @@ const NewItemForm: React.FC = () => {
     { label: "Bakery", value: "bakery" },
     { label: "Dessert", value: "dessert" },
   ];
+  const locations = [
+    { label: "Fridge", value: "fridge" },
+    { label: "Freezer", value: "freezer" },
+    { label: "Store", value: "store" },
+  ];
 
   const updateState = (prop: string, value: string | number | Date) => {
     if (prop === "quantity" && typeof value === "string")
       value = isNaN(parseInt(value)) ? 0 : parseInt(value);
 
-    setNewItem((prevNewItem) => ({
-      ...prevNewItem,
-      [prop]: value,
-    }));
+    updateNewItem({ ...newItem, [prop]: value });
     console.log(prop, value);
   };
+
   const handleImagePicked = (uri: string) => {
     updateState("image_url", uri);
   };
@@ -70,6 +62,9 @@ const NewItemForm: React.FC = () => {
   };
   const handleCategoryPicked = (category: string) => {
     updateState("category", category);
+  };
+  const handleLocationPicked = (location: string) => {
+    updateState("location", location);
   };
 
   const handleSubmit = () => {
@@ -100,6 +95,7 @@ const NewItemForm: React.FC = () => {
       <View className="mb-4">
         <DropdownComponent
           label="Quantity Unit"
+          value={newItem.quantity_unit}
           data={quantity_units}
           onChange={handleQuantityUnitPicked}
         />
@@ -109,6 +105,7 @@ const NewItemForm: React.FC = () => {
       <View className="mb-4">
         <DropdownComponent
           label="Category"
+          value={newItem.category}
           data={categories}
           onChange={handleCategoryPicked}
         />
@@ -133,20 +130,16 @@ const NewItemForm: React.FC = () => {
           />
         )}
         </View> */}
-      {/* <View style={[t.border, t.rounded, t.mb4]}>
-        <Picker
-          selectedValue={category}
-          onValueChange={(itemValue) => setCategory(itemValue as string)}
-        >
-          <Picker.Item label="Dairy" value="dairy" />
-          <Picker.Item label="Vegetables" value="vegetables" />
-          <Picker.Item label="Fruits" value="fruits" />
-          <Picker.Item label="Meat" value="meat" />
-          <Picker.Item label="Bakery" value="bakery" />
-          <Picker.Item label="Beverages" value="beverages" />
-          <Picker.Item label="Grains" value="grains" />
-        </Picker>
-      </View> */}
+
+      <Text className="mt-3 mb-2">Location</Text>
+      <View className="mb-4">
+        <DropdownComponent
+          label="Location"
+          value={newItem.location}
+          data={locations}
+          onChange={handleLocationPicked}
+        />
+      </View>
 
       <Text className="mt-3 mb-2">Notes</Text>
       <TextInput
@@ -168,12 +161,6 @@ const NewItemForm: React.FC = () => {
           <Picker.Item label="Shelf" value="shelf" />
         </Picker>
       </View> */}
-      <TouchableOpacity
-        onPress={handleSubmit}
-        className="w-36 p-2 mx-auto flex items-center rounded-lg bg-blue-500"
-      >
-        <Text className="text-lg text-white">Add</Text>
-      </TouchableOpacity>
     </View>
   );
 };

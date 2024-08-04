@@ -38,6 +38,7 @@ export type TCategory =
 export type TLocation = "fridge" | "freezer" | "shelf";
 
 export type IPantryItem = {
+  id: string;
   name: string;
   quantity: number;
   quantity_unit: QuantityUnit;
@@ -48,7 +49,7 @@ export type IPantryItem = {
   is_expired?: boolean;
   added_by?: string;
   image_url?: string;
-  location?: TLocation;
+  location: TLocation;
 };
 
 export type IPantryItems = IPantryItem[];

@@ -31,29 +31,32 @@ const FridgeItem: React.FC<Props> = ({ item }) => {
     : require("../../assets/icon.png");
 
   return (
-    <TouchableOpacity className="h-24 border-b border-gray-300 flex flex-row items-center px-2">
-      <Image source={imageSource} className="w-20 h-20 mr-2 rounded-full" />
+    <View className="h-24 border-b border-gray-300 flex flex-row items-center px-2">
+      <Image
+        source={imageSource}
+        className="w-20 h-20 mr-2 rounded-full bg-black"
+      />
       <View className="flex-auto">
         <View className="flex flex-row justify-between items-center">
           <Text className="text-lg font-bold">{item.name}</Text>
           {getExpirationStatus(item.expiration_date) ? (
-            <Text className="text-red-900 font-bold">{`${getExpirationStatus(
+            <Text className="bg-red-300 text-white p-1 rounded-xl">{`${getExpirationStatus(
               item.expiration_date
-            )} (x${item.quantity})`}</Text>
+            )} (x${item.quantity} ${item.quantity_unit})`}</Text>
           ) : (
-            <Text className="text-green-900 font-bold">
-              {"x" + item.quantity}
+            <Text className="bg-green-500 text-white p-1 rounded-xl">
+              {"x" + item.quantity + " " + item.quantity_unit}
             </Text>
           )}
         </View>
 
-        <View className="w-20 mt-1 rounded-full bg-slate-700 p-1">
-          <Text className=" text-center text-white">
-            {dateDifference(item.date_added)}
+        <View className="w-24 mt-1">
+          <Text className=" text-center">
+            {dateDifference(item.date_added) + " ago"}
           </Text>
         </View>
       </View>
-    </TouchableOpacity>
+    </View>
   );
 };
 
