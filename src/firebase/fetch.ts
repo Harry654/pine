@@ -1,11 +1,15 @@
 import { pantryItems } from "../constants/pantryItems";
-import { IPantryItem } from "../types";
+import { IPantryItem, IPantryItems, TLocation } from "../types";
 
-export const fetchFridgeItems = async (): Promise<IPantryItem[]> => {
+export const fetchItems = async (
+  location: TLocation | "all" = "all"
+): Promise<IPantryItem[]> => {
   return new Promise((resolve) => {
     setTimeout(() => {
-      const fridgeItems = pantryItems.filter((item) => item.location === "fridge");
-      resolve(fridgeItems);
-    }, 2000); 
+      let items: IPantryItems;
+      if (location === "all") items = pantryItems;
+      else items = pantryItems.filter((item) => item.location === location);
+      resolve(items);
+    }, 2000);
   });
 };

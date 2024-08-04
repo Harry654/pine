@@ -3,7 +3,7 @@ import { ScrollView, Text, View } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { HomeScreenNavigationProp } from "../nav_types";
 import FridgeItem from "./FridgeItem";
-import { fetchFridgeItems } from "../firebase/fetch";
+import { fetchItems } from "../firebase/fetch";
 import { IPantryItems } from "../types";
 import Loader from "./Loader";
 
@@ -16,7 +16,7 @@ const FridgeContent = () => {
   const loadFridgeItems = async () => {
     setLoading(true);
     try {
-      const response = await fetchFridgeItems();
+      const response = await fetchItems("fridge");
       setFridgeItems(response);
       setLoading(false);
     } catch (error) {
@@ -28,7 +28,6 @@ const FridgeContent = () => {
   useEffect(() => {
     loadFridgeItems();
   }, []);
-
 
   return (
     <ScrollView className="w-full flex-1 rounded-sm shadow-lg">

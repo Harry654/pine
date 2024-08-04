@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import { View, Button, Image, Text } from "react-native";
+import React, { useState, useEffect } from "react";
+import { View, Image, Alert, TouchableOpacity } from "react-native";
 import * as ImagePicker from "expo-image-picker";
-// import { t } from 'react-native-tailwindcss';
+import * as Permissions from "expo-permissions";
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 
 interface ImageUploaderProps {
@@ -10,6 +10,22 @@ interface ImageUploaderProps {
 
 const ImageUploader: React.FC<ImageUploaderProps> = ({ onImagePicked }) => {
   const [imageUri, setImageUri] = useState<string | null>(null);
+
+  useEffect(() => {
+    (async () => {
+      const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();
+      if (status !== "granted") {
+        alert("Sorry, we need camera roll permissions to make this work!");
+      }
+    })();
+  }, []);
+
+  const requestCameraPermission = async () => {
+    const { status } = await ImagePicker.requestCameraPermissionsAsync();
+    if (status !== "granted") {
+      alert("Sorry, we need camera permissions to make this work!");
+    }
+  };
 
   const pickImage = async () => {
     const result = await ImagePicker.launchImageLibraryAsync({
@@ -24,17 +40,46 @@ const ImageUploader: React.FC<ImageUploaderProps> = ({ onImagePicked }) => {
     }
   };
 
+  const takePhoto = async () => {
+    await requestCameraPermission();
+    const result = await ImagePicker.launchCameraAsync({
+      allowsEditing: true,
+      quality: 1,
+    });
+
+    if (!result.canceled) {
+      setImageUri(result.assets[0].uri);
+      onImagePicked(result.assets[0].uri);
+    }
+  };
+
+  const showOptions = () => {
+    Alert.alert(
+      "Upload Image",
+      "Choose an option",
+      [
+        { text: "Take Photo", onPress: takePhoto },
+        { text: "Pick from Gallery", onPress: pickImage },
+        { text: "Cancel", style: "cancel" },
+      ],
+      { cancelable: true }
+    );
+  };
+
   return (
-    <View className="h-64 border flex items-center justify-center">
-      {imageUri && (
-        <Image source={{ uri: imageUri }} className="w-48 h-48 mb-2" />
+    <View className="h-64 py-2 border border-gray-300 flex items-center justify-center">
+      {imageUri ? (
+        <TouchableOpacity onPress={showOptions}>
+          <Image source={{ uri: imageUri }} className="w-64 h-64" />
+        </TouchableOpacity>
+      ) : (
+        <TouchableOpacity
+          className="rounded-full p-2 bg-blue-500"
+          onPress={showOptions}
+        >
+          <MaterialIcons name="file-upload" size={50} color="white" />
+        </TouchableOpacity>
       )}
-      <MaterialIcons
-        name={!imageUri ? "file-upload" : "edit"}
-        size={50}
-        color="black"
-        onPress={pickImage}
-      />
     </View>
   );
 };

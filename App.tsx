@@ -7,6 +7,7 @@ import ShelfScreen from "./src/screens/ShelfScreen";
 import HomeScreenHeader from "./src/components/HomeScreenHeader";
 import FridgeHeader from "./src/components/FridgeHeader";
 import AddItemScreen from "./src/screens/AddItemScreen";
+import AddItemHeader from "./src/components/AddItemHeader";
 
 const Stack = createStackNavigator();
 
@@ -33,7 +34,11 @@ export default function App() {
         <Stack.Screen
           name="AddItem"
           component={AddItemScreen}
-          options={{ presentation: "modal" }}
+          options={({ navigation }) => ({
+            presentation: "modal",
+            header: () => <AddItemHeader navigation={navigation} />,
+            headerTitle: "Add New Item",
+          })}
         />
       </Stack.Navigator>
     </NavigationContainer>
